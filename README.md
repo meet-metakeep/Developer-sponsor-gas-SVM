@@ -88,14 +88,3 @@ Visit `http://localhost:3000` to interact with the demo.
 4. `useTransfer` creates the USDC transfer transaction, gathers the MetaKeep user signature, relays the serialized message to `/api/metakeep-sign` for a developer signature, and broadcasts the fully signed transaction while the dev wallet covers gas.
 
 All API routes strip logging down to actionable errors and rely exclusively on the environment variables listed above.
-
-## Linting & Testing
-
-- `npm run lint` &mdash; Ensures the NatSpec-documented TypeScript code conforms to `eslint-config-next`.
-- `npm run build` &mdash; Validates the production bundle can be generated successfully.
-
-## Operational Notes
-
-- User A needs at least `NEXT_PUBLIC_TRANSFER_AMOUNT` USDC on Devnet. The UI surfaces a warning when the balance is insufficient.
-- The developer wallet data and signatures are always proxied server-side so API keys never reach the browser.
-- All transactions link out to Solscan for easy verification.
