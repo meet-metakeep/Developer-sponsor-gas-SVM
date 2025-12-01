@@ -54,9 +54,6 @@ The following MetaKeep endpoints **must never be called from the browser** becau
 - [`POST https://api.metakeep.xyz/v3/getDeveloperWallet`](https://docs.metakeep.xyz/reference/v3getdeveloperwallet) – retrieves the developer (sponsor) Solana wallet. This logic lives in `app/api/developer-wallet/route.ts` and runs only on the backend.  
 - [`POST https://api.metakeep.xyz/v2/app/sign/transaction`](https://docs.metakeep.xyz/reference/v2apptransactionsign) – requests a developer signature for the fully prepared Solana transaction. Implemented in `app/api/metakeep-sign/route.ts`.
 
-> **What does “proxy API” mean?**  
-> In this context a proxy API is a backend endpoint that forwards (or “proxies”) the request to MetaKeep on behalf of the browser. We keep these proxies server-side specifically so the API key is never exposed, while still giving the React app a safe URL to call. You should **keep** this pattern whenever a third-party API requires confidential credentials.
-
 ### Client-side SDK usage
 
 The MetaKeep Web SDK’s [`getWallet`](https://docs.metakeep.xyz/reference/sdk-get-wallet) method is safe for the browser because it does not use your API key. Our `useMetaKeepSDK` hook calls:
